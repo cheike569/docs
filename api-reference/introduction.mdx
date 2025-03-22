@@ -1,33 +1,24 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: 'Make outgoing calls via API'
+description: 'This guide will help you make outgoing calls using the Greetmate API.'
 ---
 
 <Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
+    If you're not looking to build API reference documentation, you can delete
+    this section by removing the api-reference folder.
 </Note>
 
-## Welcome
+## 1. Create an API Key
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+To make outgoing calls, you need an API key. You can create an API key by click on "API Tokens" under "Integrations".
+Create a new key and copy it to your clipboard.
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
+<Card>
+    <img height="200" src="/images/content/api-key.jpg"/>
 </Card>
 
-## Authentication
+## 2. Refer to `Make call` endpoint
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+The `make-outgoing-call` endpoint is used to make outgoing calls. The endpoint is a `POST` request that requires the following parameters:
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
+See docs for the [Make Call endpoint](/api-reference/endpoint/make-outgoing-call).

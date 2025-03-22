@@ -1,0 +1,56 @@
+---
+title: 'Make Call'
+---
+
+<RequestExample>
+```bash Request (CURL)
+curl --location 'https://www.greetmate.ai/api/make-outgoing-call' \
+--header 'Authorization: Bearer <your-api-token>' \
+--form 'number="<number-to-call>"' \
+--form 'bot_id="<your bot id>"' \
+--form 'custom_variables="[{\"name\":\"car_make\",\"value\":\"Audi\"}]"'
+```
+</RequestExample>
+
+<ResponseExample>
+
+```json Response (200)
+{
+"message": "Call initiated."
+}
+```
+
+</ResponseExample>
+
+Endpoint:
+
+```
+https://www.greetmate.ai/api/make-outgoing-call
+```
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+The API key to authenticate the request
+`Bearer <your-api-token>`
+</ParamField>
+
+### Body Parameters
+
+<ParamField body="number" type="string" required>
+The number to call (must be starting with +1)
+</ParamField>
+
+<ParamField body="bot_id" type="string" required>
+Your Bot ID (can be found in the URL)
+<Card>
+<img src="/images/content/bot_id.jpg" alt="Bot ID" height="200"/>
+</Card>
+</ParamField>
+
+<ParamField body="custom_variables" type="string (json encoded)">
+Any custom variables you want to pass to the bot. Must be a JSON encoded string.
+<Card>
+<img src="/images/content/custom_variables.jpg" alt="Bot ID" width="200"/>
+</Card>
+</ParamField>
