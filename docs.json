@@ -36,8 +36,7 @@
           {
             "group": "Outbound Calls",
             "pages": [
-              "outgoing-calls/make-outgoing-call-zapier",
-              "api-reference/introduction"
+              "outgoing-calls/make-outgoing-call-zapier"
             ]
           }
         ]
