@@ -1,5 +1,5 @@
 ---
-title: '[GET] Make Call'
+title: '[POST] Make Call'
 ---
 
 <RequestExample>
@@ -8,6 +8,7 @@ curl --location 'https://www.greetmate.ai/api/make-outgoing-call' \
 --header 'Authorization: Bearer <your-api-token>' \
 --form 'number="<number-to-call>"' \
 --form 'bot_id="<your bot id>"' \
+--form 'team_id="<your team id>"' \
 --form 'workflow_id="<your workflow id>"' \
 --form 'custom_variables="[{\"name\":\"car_make\",\"value\":\"Audi\"}]"'
 ```
@@ -46,6 +47,13 @@ The number to call (must be starting with +1)
 Your Bot ID (can be found in the URL)
 <Card>
 <img src="/images/content/bot_id.jpg" alt="Bot ID" height="200"/>
+</Card>
+</ParamField>
+
+<ParamField body="team_id" type="string" required>
+Your Team ID (can be found in the URL if you go to your team settings)
+<Card>
+<img src="/images/content/team_id.jpg" alt="Bot ID" height="200"/>
 </Card>
 </ParamField>
 

@@ -34,9 +34,17 @@
             ]
           },
           {
-            "group": "Outbound Calls",
+            "group": "Zapier Integration",
             "pages": [
+              "zapier/getting-started",
+              "zapier/workflow-trigger",
               "outgoing-calls/make-outgoing-call-zapier"
+            ]
+          },
+          {
+            "group": "Twilio Integration",
+            "pages": [
+              "twilio/getting-started"
             ]
           }
         ]
@@ -68,7 +76,7 @@
         },
         {
           "anchor": "Join Slack Community",
-          "href": "https://join.slack.com/t/greetmatecommunity/shared_invite/zt-32filzr1d-T5EyFxobt1tHpNFrcOQgfw",
+          "href": "https://join.slack.com/t/greetmatecommunity/shared_invite/zt-356a74uee-~~ruyTxHWvmUMYpSj9xqAg",
           "icon": "slack"
         },
         {
