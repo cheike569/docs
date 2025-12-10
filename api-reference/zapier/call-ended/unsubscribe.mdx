@@ -1,0 +1,24 @@
+---
+title: '[DELETE] /api/zapier/call_ended/unsubscribe'
+description: 'Unsubscribe a previously registered Call Ended webhook.'
+---
+
+> See shared authentication and headers in Zapier API Overview.
+
+### Body
+
+<ParamField body="id" type="integer" required>
+Subscription ID returned from the subscribe call.
+</ParamField>
+
+### Request Example
+
+```json
+{ "id": 67890 }
+```
+
+### Response Example
+
+```json
+{ "status": "success" }
+```

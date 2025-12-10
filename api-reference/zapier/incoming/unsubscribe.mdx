@@ -1,0 +1,24 @@
+---
+title: '[DELETE] /api/zapier/incoming/unsubscribe'
+description: 'Remove a previously registered Incoming Call webhook.'
+---
+
+> See shared authentication and headers in Zapier API Overview.
+
+### Body
+
+<ParamField body="id" type="integer" required>
+Subscription ID returned from the subscribe call.
+</ParamField>
+
+### Request Example
+
+```json
+{ "id": 12345 }
+```
+
+### Response Example
+
+```json
+{ "status": "success" }
+```

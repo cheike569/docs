@@ -1,0 +1,30 @@
+---
+title: '[GET] /api/zapier/workflow_item/list'
+description: 'Return sample data (last 10 calls) focused on workflow variables.'
+---
+
+> See shared authentication and headers in Zapier API Overview.
+
+### Response Items
+
+- `call_id` (string)
+- `from` (string)
+- `to` (string)
+- `start_time_utc` (string)
+- `start_time_account` (string)
+- `variables` (object|null)
+- `team_id` (integer)
+
+### Example Item
+
+```json
+{
+  "call_id": "call_abc123",
+  "from": "+15551234567",
+  "to": "+15557654321",
+  "start_time_utc": "2025-12-01 10:23:45",
+  "start_time_account": "2025-12-01 05:23:45",
+  "variables": {"stage": "qualified", "score": 85},
+  "team_id": 42
+}
+```

@@ -1,0 +1,24 @@
+---
+title: '[DELETE] /api/zapier/workflow_item/unsubscribe'
+description: 'Unsubscribe a previously registered workflow item webhook.'
+---
+
+> See shared authentication and headers in Zapier API Overview.
+
+### Body
+
+<ParamField body="id" type="integer" required>
+Subscription ID returned from the subscribe call.
+</ParamField>
+
+### Request Example
+
+```json
+{ "id": 24680 }
+```
+
+### Response Example
+
+```json
+{ "status": "success" }
+```

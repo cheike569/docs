@@ -1,0 +1,26 @@
+---
+title: '[POST] /api/zapier/call_ended/subscribe'
+description: 'Register a Zapier webhook to receive Call Ended payloads.'
+---
+
+> See shared authentication and headers in Zapier API Overview.
+
+### Body
+
+<ParamField body="hookUrl" type="string" required>
+Zapier’s Catch Hook URL.
+</ParamField>
+
+### Request Example
+
+```json
+{
+  "hookUrl": "https://hooks.zapier.com/hooks/catch/123/ended"
+}
+```
+
+### Response Example
+
+```json
+{ "status": "success", "id": 67890 }
+```

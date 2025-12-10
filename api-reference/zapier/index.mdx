@@ -1,0 +1,56 @@
+---
+title: 'Zapier API Overview'
+description: 'Authentication, common headers, and index of Zapier webhook endpoints.'
+---
+
+## Overview
+
+All Zapier routes are authenticated and scoped to the current user; optionally, requests can be scoped to a specific team via the `X-Team-Id` header.
+
+- Base URL: https://www.greetmate.ai
+- Base prefix: `/api`
+- Auth: Bearer token (same value can be sent in `Authorization: Bearer <token>` and `X-API-KEY: <token>`) for Zapier convenience
+- Optional team scoping: `X-Team-Id: <team_id>` (switches context for the request)
+
+### Authentication and Headers
+
+<ParamField header="Authorization" type="string" required>
+Bearer token used for authentication. `Authorization: Bearer &lt;api_token&gt;`
+</ParamField>
+
+<ParamField header="X-API-KEY" type="string">
+Optional duplicate of the bearer token. Often set by Zapier automatically.
+</ParamField>
+
+<ParamField header="Accept" type="string" required>
+`application/json`
+</ParamField>
+
+<ParamField header="Content-Type" type="string" required>
+`application/json`
+</ParamField>
+
+<ParamField header="X-Team-Id" type="integer">
+Optional. Operate on a specific team context for this request.
+</ParamField>
+
+> Note: All endpoints are protected. Ensure the token is valid for the user making the request.
+
+---
+
+## Endpoints Index
+
+- Incoming Calls
+  - [POST /api/zapier/incoming/subscribe](./incoming/subscribe)
+  - [DELETE /api/zapier/incoming/unsubscribe](./incoming/unsubscribe)
+  - [GET /api/zapier/incoming/list](./incoming/list)
+- Call Ended
+  - [POST /api/zapier/call_ended/subscribe](./call-ended/subscribe)
+  - [DELETE /api/zapier/call_ended/unsubscribe](./call-ended/unsubscribe)
+  - [GET /api/zapier/call_ended/list](./call-ended/list)
+- Workflow Item
+  - [POST /api/zapier/workflow_item/subscribe](./workflow-item/subscribe)
+  - [DELETE /api/zapier/workflow_item/unsubscribe](./workflow-item/unsubscribe)
+  - [GET /api/zapier/workflow_item/list](./workflow-item/list)
+
+See the Make Outgoing Call action under Endpoint Examples: [POST /api/make-outgoing-call](/api-reference/endpoint/make-outgoing-call)

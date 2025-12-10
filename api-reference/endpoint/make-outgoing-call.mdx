@@ -1,28 +1,7 @@
 ---
-title: '[POST] Make Call'
+title: '[POST] Make Outgoing Call'
+description: 'Initiate an outbound call via Greetmate using JSON body and Bearer auth.'
 ---
-
-<RequestExample>
-```bash Request (CURL)
-curl --location 'https://www.greetmate.ai/api/make-outgoing-call' \
---header 'Authorization: Bearer <your-api-token>' \
---form 'number="<number-to-call>"' \
---form 'bot_id="<your bot id>"' \
---form 'team_id="<your team id>"' \
---form 'workflow_id="<your workflow id>"' \
---form 'custom_variables="[{\"name\":\"car_make\",\"value\":\"Audi\"}]"'
-```
-</RequestExample>
-
-<ResponseExample>
-
-```json Response (200)
-{
-"message": "Call initiated."
-}
-```
-
-</ResponseExample>
 
 Endpoint:
 
@@ -33,37 +12,86 @@ https://www.greetmate.ai/api/make-outgoing-call
 ### Headers
 
 <ParamField header="Authorization" type="string" required>
-The API key to authenticate the request
-`Bearer <your-api-token>`
+Bearer token used for authentication.
+`Authorization: Bearer &lt;api_token&gt;`
+</ParamField>
+
+<ParamField header="X-API-KEY" type="string">
+Optional duplicate of the bearer token. Often set by Zapier automatically.
+</ParamField>
+
+<ParamField header="Content-Type" type="string" required>
+`application/json`
+</ParamField>
+
+<ParamField header="Accept" type="string" required>
+`application/json`
+</ParamField>
+
+<ParamField header="X-Team-Id" type="integer">
+Optional. Scope the request to a specific team.
+<Card>
+<img src="/images/content/team_id.jpg" alt="Team ID" height="200"/>
+</Card>
 </ParamField>
 
 ### Body Parameters
 
 <ParamField body="number" type="string" required>
-The number to call (must be starting with +1)
+Destination phone number in E.164 format (e.g., `+15551234567`).
 </ParamField>
 
-<ParamField body="bot_id" type="string" required>
-Your Bot ID (can be found in the URL)
+<ParamField body="custom_variables" type="object">
+Optional key-value pairs passed to the workflow/call.
+<Card>
+<img src="/images/content/custom_variables.jpg" alt="Custom Variables" width="200"/>
+</Card>
+</ParamField>
+
+<ParamField body="bot_id" type="integer">
+Optional. Specific bot/agent to use.
 <Card>
 <img src="/images/content/bot_id.jpg" alt="Bot ID" height="200"/>
 </Card>
 </ParamField>
 
-<ParamField body="team_id" type="string" required>
-Your Team ID (can be found in the URL if you go to your team settings)
-<Card>
-<img src="/images/content/team_id.jpg" alt="Bot ID" height="200"/>
-</Card>
+<ParamField body="workflow_id" type="integer">
+Optional. Workflow to execute.
 </ParamField>
 
-<ParamField body="workflow_id" type="string" required>
-The workflow ID (can be found in the Workflow's URL)
+<ParamField body="team_id" type="integer">
+Optional. Target team. Prefer the `X-Team-Id` header when possible.
 </ParamField>
 
-<ParamField body="custom_variables" type="string (json encoded)">
-Any custom variables you want to pass to the bot. Must be a JSON encoded string.
-<Card>
-<img src="/images/content/custom_variables.jpg" alt="Bot ID" width="200"/>
-</Card>
-</ParamField>
+### Request Example (cURL)
+
+```bash
+curl -X POST "https://www.greetmate.ai/api/make-outgoing-call" \
+  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json" \
+  -H "X-Team-Id: 42" \
+  -d '{"number":"+15551234567","custom_variables":{"lead_name":"John Doe","source":"Zapier"},"bot_id":101,"workflow_id":202}'
+```
+
+### Example Request (Zapier)
+
+```json
+{
+  "number": "+15551234567",
+  "custom_variables": {"lead_name": "John Doe", "source": "Zapier"},
+  "bot_id": 101,
+  "workflow_id": 202,
+  "team_id": 42
+}
+```
+
+### Response
+
+```json
+{
+  "status": "success",
+  "call_id": "call_abc123",
+  "message": "Call initiated."
+}
+```

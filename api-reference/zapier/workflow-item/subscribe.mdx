@@ -1,0 +1,31 @@
+---
+title: '[POST] /api/zapier/workflow_item/subscribe'
+description: 'Register a Zapier webhook for a specific workflow item token.'
+---
+
+> See shared authentication and headers in Zapier API Overview.
+
+### Body
+
+<ParamField body="hookUrl" type="string" required>
+Zapier’s Catch Hook URL.
+</ParamField>
+
+<ParamField body="token" type="string" required>
+Token identifying the workflow item trigger.
+</ParamField>
+
+### Request Example
+
+```json
+{
+  "hookUrl": "https://hooks.zapier.com/hooks/catch/123/workflow",
+  "token": "wf_item_token_123"
+}
+```
+
+### Response Example
+
+```json
+{ "status": "success", "id": 24680 }
+```

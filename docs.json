@@ -65,7 +65,43 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Zapier API Reference (Internal)",
+        "groups": [
+          {
+            "group": "Zapier API · Overview",
+            "pages": [
+              "api-reference/zapier/index"
+            ]
+          },
+          {
+            "group": "Zapier API · Incoming Calls",
+            "pages": [
+              "api-reference/zapier/incoming/subscribe",
+              "api-reference/zapier/incoming/unsubscribe",
+              "api-reference/zapier/incoming/list"
+            ]
+          },
+          {
+            "group": "Zapier API · Call Ended",
+            "pages": [
+              "api-reference/zapier/call-ended/subscribe",
+              "api-reference/zapier/call-ended/unsubscribe",
+              "api-reference/zapier/call-ended/list"
+            ]
+          },
+          {
+            "group": "Zapier API · Workflow Item",
+            "pages": [
+              "api-reference/zapier/workflow-item/subscribe",
+              "api-reference/zapier/workflow-item/unsubscribe",
+              "api-reference/zapier/workflow-item/list"
+            ]
+          }
+        ]
       }
+
     ],
     "global": {
       "anchors": [

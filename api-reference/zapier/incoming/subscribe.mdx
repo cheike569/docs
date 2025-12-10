@@ -1,0 +1,26 @@
+---
+title: '[POST] /api/zapier/incoming/subscribe'
+description: 'Register a Zapier webhook to receive Incoming Call payloads.'
+---
+
+> See shared authentication and headers in Zapier API Overview.
+
+### Body
+
+<ParamField body="hookUrl" type="string" required>
+Zapier’s Catch Hook URL.
+</ParamField>
+
+### Request Example
+
+```json
+{
+  "hookUrl": "https://hooks.zapier.com/hooks/catch/123/abc"
+}
+```
+
+### Response Example
+
+```json
+{ "status": "success", "id": 12345 }
+```

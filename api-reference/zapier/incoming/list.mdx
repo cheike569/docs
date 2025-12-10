@@ -1,0 +1,34 @@
+---
+title: '[GET] /api/zapier/incoming/list'
+description: 'Return sample data (last 10 calls) to help set up the Zap for Incoming Calls.'
+---
+
+> See shared authentication and headers in Zapier API Overview.
+
+### Response Items
+
+- `call_id` (string)
+- `from` (string): caller number
+- `to` (string): callee number
+- `external_number` (string): external party number
+- `greetmate_number` (string): Greetmate number used
+- `direction` (string): `inbound` or `outbound`
+- `start_time_utc` (string, `YYYY-MM-DD HH:mm:ss`)
+- `start_time_account` (string, account timezone)
+- `team_id` (integer)
+
+### Example Item
+
+```json
+{
+  "call_id": "call_abc123",
+  "from": "+15551234567",
+  "to": "+15557654321",
+  "external_number": "+15551234567",
+  "greetmate_number": "+15557654321",
+  "direction": "inbound",
+  "start_time_utc": "2025-12-01 10:23:45",
+  "start_time_account": "2025-12-01 05:23:45",
+  "team_id": 42
+}
+```
